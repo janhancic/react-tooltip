@@ -18,9 +18,7 @@ var ToolTip = React.createClass({
 	},
 
 	render: function() {
-		return (
-			<div>Hello ToolTip</div>
-		);
+		return React.Children.only(this.props.children);
 	}
 });
 

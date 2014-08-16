@@ -35,7 +35,12 @@ var ToolTip = React.createClass({
 		document.body.appendChild(toolTipEl);
 
 		// 2. calculate the position of the child, and position it accordingly
-		debugger;
+		var childEl = this.getDOMNode(); // since we render the child, that is our DOM then
+		var childElPos = childEl.getBoundingClientRect();
+
+		toolTipEl.style.position = 'absolute';
+		toolTipEl.style.top = childElPos.top + childElPos.height + 5 + 'px';
+		toolTipEl.style.left = childElPos.left + 'px';
 	},
 
 	render: function() {

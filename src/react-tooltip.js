@@ -44,12 +44,7 @@ var ToolTip = React.createClass({
 	},
 
 	render: function() {
-		var child = React.Children.only(this.props.children);
-
-		// add ref to child // TODO: if ref is already there read it and store it, so it doesn't tread on other components
-		//child.props.ref = 'rtt-target';
-
-		return child;
+		return this.props.children;
 	},
 
 	_createToolTip: function() {

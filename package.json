@@ -1,0 +1,15 @@
+{
+  "name": "react-tooltip",
+  "version": "0.0.0",
+  "description": "An experiment to try to figure out how best to display tooltips with React.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "react": "~0.11.1",
+    "jsx-loader": "~0.11.0"
+  }
+}

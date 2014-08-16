@@ -11,7 +11,7 @@ React.renderComponent(
 	<div>
 		<p>Some text</p>
 		<div>
-			<ToolTip show={true} position="bottom">
+			<ToolTip show={true} position="bottom" message="I am a message.">
 				<input type="text" defaultValue="Hello" />
 			</ToolTip>
 		</div>

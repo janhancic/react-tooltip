@@ -15,6 +15,11 @@ function createToolTipEl(message) {
 var ToolTip = React.createClass({
 	displayName: 'ToolTip',
 
+	propTypes: {
+		show: React.PropTypes.bool.isRequired,
+		message: React.PropTypes.string.isRequired
+	},
+
 	componentWillMount: function() {
 		var numOfChildren = React.Children.count(this.props.children);
 
@@ -54,7 +59,7 @@ var ToolTip = React.createClass({
 		var childEl = this.getDOMNode(); // since we render the child, that is our DOM then
 		var childElPos = childEl.getBoundingClientRect();
 
-		this._toolTipEl.style.position = 'absolute';
+		this._toolTipEl.style.position = 'fixed';
 		this._toolTipEl.style.top = childElPos.top + childElPos.height + 5 + 'px';
 		this._toolTipEl.style.left = childElPos.left + 'px';
 	},

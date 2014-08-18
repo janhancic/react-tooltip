@@ -15,7 +15,12 @@ var App = React.createClass({
 	},
 
 	render: function() {
-		console.log('render');
+		var style = {
+			position: 'fixed',
+			left: '300px',
+			top: '150px'
+		};
+
 		return (
 			<div>
 				<p>
@@ -23,7 +28,7 @@ var App = React.createClass({
 				</p>
 				<div>
 					<ToolTip show={this.state.showTooltip} position="bottom" message="I am a message.">
-						<input type="text" defaultValue="Hello" />
+						<input style={style} type="text" defaultValue="Hello" />
 					</ToolTip>
 				</div>
 				<p>Some other text</p>
@@ -32,7 +37,6 @@ var App = React.createClass({
 	},
 
 	_toggle: function() {
-		console.log('aaa');
 		this.setState({showTooltip: !this.state.showTooltip});
 	}
 

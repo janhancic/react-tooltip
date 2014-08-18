@@ -75,10 +75,6 @@ var ToolTip = React.createClass({
 
 	render: function() {
 		return this.props.children;
-	},
-
-	_createToolTip: function() {
-
 	}
 });
 

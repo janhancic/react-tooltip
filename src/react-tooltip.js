@@ -30,17 +30,42 @@ var ToolTip = React.createClass({
 			return;
 		}
 
+		this._addToolTip();
+	},
+
+	componentWillUnmount: function() {
+		this._removeToolTip();
+	},
+
+	componentWillReceiveProps: function(nextProps) {
+		if (nextProps.show === false) {
+			this._removeToolTip();
+		} else {
+			this._addToolTip();
+		}
+	},
+
+	_addToolTip: function() {
 		// 1. create a tooltip element & insert it into the body
-		var toolTipEl = createToolTipEl(this.props.message);
-		document.body.appendChild(toolTipEl);
+		this._toolTipEl = createToolTipEl(this.props.message);
+		document.body.appendChild(this._toolTipEl);
 
 		// 2. calculate the position of the child, and position it accordingly
 		var childEl = this.getDOMNode(); // since we render the child, that is our DOM then
 		var childElPos = childEl.getBoundingClientRect();
 
-		toolTipEl.style.position = 'absolute';
-		toolTipEl.style.top = childElPos.top + childElPos.height + 5 + 'px';
-		toolTipEl.style.left = childElPos.left + 'px';
+		this._toolTipEl.style.position = 'absolute';
+		this._toolTipEl.style.top = childElPos.top + childElPos.height + 5 + 'px';
+		this._toolTipEl.style.left = childElPos.left + 'px';
+	},
+
+	_removeToolTip: function() {
+		if (!this._toolTipEl) {
+			return;
+		}
+
+		document.body.removeChild(this._toolTipEl);
+		this._toolTipEl = null;
 	},
 
 	render: function() {
